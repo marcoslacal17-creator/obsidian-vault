@@ -8,6 +8,9 @@
 # Plugin de Git: contiene token de autenticación
 .obsidian/plugins/obsidian-git/data.json
 
+# Script con token de GitHub (no subir nunca)
+connect-github.ps1
+
 # Trash local
 .trash/
 

@@ -1,4 +1,4 @@
-﻿<%*
+<%*
 const month = tp.date.now("YYYY-MM");
 await tp.file.rename(month);
 -%>
