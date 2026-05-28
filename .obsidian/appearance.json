@@ -1,9 +1,3 @@
-﻿{
-  "accentColor": "#7c3aed",
-  "theme": "obsidian",
-  "cssTheme": "Minimal",
-  "baseFontSize": 16,
-  "showRibbon": true,
-  "showInlineTitle": true,
-  "enabledCssSnippets": ["callouts", "typography", "focus"]
+{
+  "theme": "obsidian"
 }
