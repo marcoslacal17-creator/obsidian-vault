@@ -1,44 +1,24 @@
-﻿{
+{
   "installedVersion": "1.0.0-beta1",
   "activeCalendarSet": "Default",
-  "showGettingStartedBanner": false,
-  "hasMigratedDailyNoteSettings": true,
-  "hasMigratedWeeklyNoteSettings": true,
+  "showGettingStartedBanner": true,
+  "hasMigratedDailyNoteSettings": false,
+  "hasMigratedWeeklyNoteSettings": false,
   "calendarSets": [
     {
-      "id": "Default",
-      "ctime": "2026-05-28T14:11:02+02:00",
       "day": {
         "enabled": true,
         "openAtStartup": false,
-        "format": "YYYY-MM-DD",
-        "templatePath": "09_Templates/Daily",
-        "folder": "01_Daily"
-      },
-      "week": {
-        "enabled": true,
-        "format": "YYYY-[W]ww",
-        "templatePath": "09_Templates/Weekly",
-        "folder": "01_Daily/Weekly"
-      },
-      "month": {
-        "enabled": true,
-        "format": "YYYY-MM",
-        "templatePath": "09_Templates/Monthly",
-        "folder": "01_Daily/Monthly"
-      },
-      "quarter": {
-        "enabled": false,
         "format": "",
         "templatePath": "",
         "folder": ""
       },
-      "year": {
-        "enabled": false,
-        "format": "",
-        "templatePath": "",
-        "folder": ""
-      }
+      "week": {},
+      "month": {},
+      "quarter": {},
+      "year": {},
+      "id": "Default",
+      "ctime": "2026-05-28T19:02:46+02:00"
     }
   ],
   "enableTimelineComplication": true
