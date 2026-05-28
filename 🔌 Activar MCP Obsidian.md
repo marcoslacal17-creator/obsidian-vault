@@ -3,80 +3,56 @@ type: guide
 tags: [meta, mcp, claude]
 ---
 
-# 🔌 Activar MCP de Obsidian — pasos finales
+# 🔌 MCP de Obsidian — configurado ✅
 
-He instalado todo lo necesario para que Claude (en futuras conversaciones) pueda leer y escribir directamente en esta vault sin que tengas que copiar y pegar nada.
+El MCP ya está conectado a Claude Code usando el **servidor MCP nativo** del plugin Local REST API v4.1.1 (sin wrapper Python).
 
-Faltan 3 pasos rápidos que solo tú puedes hacer:
+## Cómo funciona
 
----
+- Plugin **Local REST API with MCP** expone un servidor MCP HTTP en `https://127.0.0.1:27124/mcp/`
+- Claude Code se conecta con la API key como Bearer token
+- Mientras Obsidian esté abierto, Claude puede leer/escribir esta vault
 
-## ✅ Paso 1 — Activar el plugin Local REST API
+## Requisitos en cada sesión
 
-1. `Settings` (engranaje abajo a la izquierda)
-2. **Community plugins** → busca **Local REST API** en la lista
-3. Si NO está activo, enciende el toggle
-4. Acepta "Trust author" si te lo pide
+1. **Obsidian abierto**
+2. **Plugin Local REST API activo** (toggle ON)
+3. **HTTPS server habilitado** (puerto 27124, ya configurado)
 
----
+## Capacidades de Claude
 
-## ✅ Paso 2 — Obtener la API Key
+- Listar archivos por carpeta
+- Leer cualquier nota
+- Crear, editar, anexar notas
+- Buscar texto en toda la vault
+- Ejecutar comandos de Obsidian
+- Acceder a metadata (frontmatter, tags, backlinks)
 
-1. `Settings` → busca **Local REST API** en la barra lateral (sección "Community plugin settings")
-2. Verás un campo **API Key** con un texto largo tipo `a1b2c3d4...`
-3. Clic en el botón **Copy** que está al lado
-4. **Guárdala en un sitio seguro** (la vas a usar en el paso 3)
-5. Asegúrate de que **Enable Encrypted (HTTPS) Server** esté **ON** en el puerto **27124**
+## Probarlo
 
----
+En una nueva conversación de Claude Code, escribe:
+> "lista las notas de mi vault de Obsidian"
 
-## ✅ Paso 3 — Pegar la API Key en Claude Code
+Si responde con tus archivos → todo bien.
+Si dice que no tiene MCP → reinicia Claude Code.
 
-Abre PowerShell y ejecuta (sustituyendo `TU_KEY_AQUI`):
+## Si pierdes la API key o quieres rotarla
 
-```powershell
-$settings = "$env:USERPROFILE\.claude\settings.json"
-$content = Get-Content $settings -Raw
-$content = $content -replace 'PEGA_TU_API_KEY_AQUI', 'TU_KEY_AQUI'
-Set-Content -Path $settings -Value $content -Encoding utf8
-```
+1. Settings → Local REST API → **Reset all crypto** (botón rojo)
+2. Vuelve arriba y copia la nueva key
+3. PowerShell:
+   ```powershell
+   $s = "$env:USERPROFILE\.claude\settings.json"
+   (Get-Content $s -Raw) -replace 'Bearer [a-f0-9]+', 'Bearer NUEVA_KEY' | Set-Content $s -Encoding utf8
+   ```
+4. Reinicia Claude Code
 
-O abre `C:\Users\marco\.claude\settings.json` con Notepad y reemplaza `PEGA_TU_API_KEY_AQUI` por la key copiada.
+## Localización de la config
 
----
-
-## ✅ Paso 4 — Probar que funciona
-
-1. Cierra y vuelve a abrir Claude Code
-2. En la próxima conversación, escribe: *"lista las notas de mi vault de Obsidian"*
-3. Claude debería usar el MCP y responder con tus archivos
-
----
-
-## 🛠️ Lo que el MCP te da
-
-Cuando funcione, Claude podrá (sin que copies nada):
-- **Leer** cualquier nota de tu vault por nombre o búsqueda
-- **Crear** notas nuevas en cualquier carpeta
-- **Modificar** notas existentes
-- **Buscar** por texto completo en toda la vault
-- **Listar** archivos por carpeta
-- **Añadir** contenido a notas existentes
-- **Ejecutar** comandos de Obsidian
-
-Requisitos: Obsidian abierto + plugin Local REST API activo.
+- **Claude Code**: `C:\Users\marco\.claude\settings.json`
+- **Plugin REST API**: dentro de Obsidian, Settings → Community plugins → Local REST API
+- **Servidor**: `https://127.0.0.1:27124` (HTTPS), endpoint MCP en `/mcp/`
 
 ---
 
-## 🐛 Si no funciona
-
-- **Error "connection refused"** → Obsidian no está abierto o el plugin está apagado.
-- **Error "401 unauthorized"** → la API key está mal pegada (sin espacios, sin comillas extras).
-- **Error de certificado** → el plugin usa cert autofirmado, normal. mcp-obsidian lo ignora.
-- **Claude no ve el MCP** → reinicia Claude Code (cierra y abre).
-
-Si algo va mal, dímelo en chat y lo diagnostico.
-
----
-
-**Borra este archivo cuando hayas terminado los 3 pasos.** 🗑️
+**Borra este archivo cuando termines de verificar que funciona.** 🗑️
