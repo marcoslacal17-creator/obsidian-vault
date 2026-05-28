@@ -1,17 +1,17 @@
-﻿[
-  "templater-obsidian",
-  "dataview",
-  "periodic-notes",
-  "calendar-beta",
-  "obsidian-tasks-plugin",
-  "quickadd",
-  "obsidian-git",
-  "omnisearch",
+[
   "table-editor-obsidian",
+  "obsidian-auto-link-title",
+  "calendar-beta",
+  "dataview",
   "obsidian-excalidraw-plugin",
-  "obsidian-icon-folder",
-  "obsidian-style-settings",
-  "obsidian-linter",
   "homepage",
-  "obsidian-auto-link-title"
+  "obsidian-icon-folder",
+  "obsidian-linter",
+  "omnisearch",
+  "periodic-notes",
+  "quickadd",
+  "obsidian-style-settings",
+  "obsidian-tasks-plugin",
+  "templater-obsidian",
+  "obsidian-git"
 ]

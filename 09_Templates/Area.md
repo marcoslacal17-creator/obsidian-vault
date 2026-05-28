@@ -10,7 +10,7 @@ tags: [area]
 ## 🎯 Estándar / definición
 > Qué significa "estar bien" en esta área.
 
-## 📊 Métricas / KPIs
+## 📊 Métricas / indicadores clave
 - 
 
 ## 🎯 Objetivos actuales
@@ -18,7 +18,7 @@ tags: [area]
 
 ## 📋 Proyectos activos en esta área
 ```dataview
-TABLE status, deadline, priority
+TABLE status AS Estado, deadline AS Vencimiento, priority AS Prioridad
 FROM "02_Projects"
 WHERE area = this.file.name
 AND status = "active"
@@ -37,5 +37,5 @@ SORT file.mtime DESC
 LIMIT 10
 ```
 
-## 📜 Log de cambios
+## 📜 Bitácora de cambios
 - <% tp.date.now("YYYY-MM-DD") %>: área creada

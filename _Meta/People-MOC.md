@@ -3,18 +3,18 @@ type: moc
 tags: [moc, people]
 ---
 
-# 👥 Map of People
+# 👥 Mapa de Personas
 
-[[_Meta/Home|🏠]]
+[[_Meta/Home|🏠 Inicio]]
 
 ## Por empresa
 ```dataview
 TABLE WITHOUT ID
   file.link AS Persona,
   role AS Rol,
-  email AS Email
+  email AS Correo
 FROM "07_People"
-GROUP BY company
+GROUP BY company AS Empresa
 SORT company ASC
 ```
 
@@ -26,7 +26,7 @@ SORT file.mtime DESC
 LIMIT 10
 ```
 
-## Sin actividad (>90 días)
+## Sin actividad (más de 90 días)
 ```dataview
 LIST
 FROM "07_People"

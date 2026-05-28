@@ -3,16 +3,16 @@ type: moc
 tags: [moc]
 ---
 
-# 🎯 Map of Projects
+# 🎯 Mapa de Proyectos
 
-[[_Meta/Home|🏠]]
+[[_Meta/Home|🏠 Inicio]]
 
 ## 🟢 Activos
 ```dataview
 TABLE WITHOUT ID
   file.link AS Proyecto,
   priority AS Prioridad,
-  deadline AS Deadline,
+  deadline AS Vencimiento,
   area AS Área
 FROM "02_Projects"
 WHERE status = "active"
@@ -21,7 +21,7 @@ SORT priority DESC, deadline ASC
 
 ## ⏸️ En pausa
 ```dataview
-TABLE file.link AS Proyecto, deadline
+TABLE file.link AS Proyecto, deadline AS Vencimiento
 FROM "02_Projects"
 WHERE status = "paused"
 ```

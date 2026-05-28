@@ -45,5 +45,5 @@ not done
 path includes {{ tp.file.path() }}
 ```
 
-## 📜 Log
+## 📜 Bitácora
 - <% tp.date.now("YYYY-MM-DD") %>: proyecto creado

@@ -10,7 +10,7 @@ tags: [monthly, review]
 
 # <% tp.date.now("MMMM YYYY") %>
 
-[[_Meta/Home|🏠]]
+[[_Meta/Home|🏠 Inicio]]
 
 ## 🎯 Objetivos del mes
 - [ ] 

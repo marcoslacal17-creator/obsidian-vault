@@ -1,4 +1,4 @@
-<%*
+﻿<%*
 const today = tp.date.now("YYYY-MM-DD");
 const yesterday = tp.date.now("YYYY-MM-DD", -1);
 const tomorrow = tp.date.now("YYYY-MM-DD", 1);
@@ -13,7 +13,7 @@ tags: [daily]
 
 # <% tp.date.now("dddd, DD MMMM YYYY") %>
 
-[[<% yesterday %>|◀ Ayer]] | [[<% tomorrow %>|Mañana ▶]] | [[_Meta/Home|🏠]]
+[[<% yesterday %>|◀ Ayer]] | [[<% tomorrow %>|Mañana ▶]] | [[_Meta/Home|🏠 Inicio]]
 
 ## Foco del día
 - 
@@ -30,13 +30,13 @@ WHERE date = date("<% today %>")
 ## Notas rápidas
 - 
 
-## Captura (Inbox)
+## Captura del día (Bandeja)
 ```dataview
 LIST FROM "00_Inbox"
 WHERE file.cday = date("<% today %>")
 ```
 
-## Journal
+## Diario personal
 **Cómo me siento:** 
 **Lo mejor del día:** 
 **Qué aprendí:** 

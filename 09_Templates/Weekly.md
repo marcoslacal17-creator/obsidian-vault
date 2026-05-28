@@ -12,7 +12,7 @@ tags: [weekly, review]
 
 # Semana <% tp.date.now("ww, YYYY") %>
 
-[[_Meta/Home|🏠]] | [[<% tp.date.now("YYYY-[W]ww", -7) %>|◀ Anterior]] | [[<% tp.date.now("YYYY-[W]ww", 7) %>|Siguiente ▶]]
+[[_Meta/Home|🏠 Inicio]] | [[<% tp.date.now("YYYY-[W]ww", -7) %>|◀ Anterior]] | [[<% tp.date.now("YYYY-[W]ww", 7) %>|Siguiente ▶]]
 
 ## 🎯 Objetivos de la semana
 - [ ] 
@@ -43,7 +43,7 @@ SORT file.name ASC
 
 ## 🎯 Proyectos tocados
 ```dataview
-TABLE status, deadline
+TABLE status AS Estado, deadline AS Vencimiento
 FROM "02_Projects"
 WHERE contains(file.outlinks, this.file.link) OR contains(this.file.outlinks, file.link)
 ```
@@ -53,5 +53,5 @@ WHERE contains(file.outlinks, this.file.link) OR contains(this.file.outlinks, fi
 
 ## 🪞 Reflexión
 **Qué funcionó:** 
-**Qué no:** 
+**Qué no funcionó:** 
 **Qué cambio:** 

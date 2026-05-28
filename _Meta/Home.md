@@ -3,14 +3,14 @@ type: dashboard
 cssclasses: [dashboard]
 ---
 
-# 🏠 Home
+# 🏠 Inicio
 
 > Tu centro de mando. Bienvenido, Marco.
 
 ## 🚀 Accesos rápidos
-- [[00_Inbox|📥 Inbox]] · [[_Meta/Inbox-Triage|🧹 Triage Inbox]]
+- [[00_Inbox|📥 Bandeja]] · [[_Meta/Inbox-Triage|🧹 Procesar bandeja]]
 - [[_Meta/Projects-MOC|🎯 Proyectos]] · [[_Meta/People-MOC|👥 Personas]]
-- [[09_Templates|📐 Templates]]
+- [[09_Templates|📐 Plantillas]]
 
 ## 📅 Hoy
 ```dataview
@@ -25,7 +25,7 @@ TABLE WITHOUT ID
   file.link AS Proyecto,
   status AS Estado,
   priority AS Prioridad,
-  deadline AS Deadline
+  deadline AS Vencimiento
 FROM "02_Projects"
 WHERE status = "active"
 SORT priority DESC, deadline ASC
@@ -39,7 +39,7 @@ sort by due
 limit 15
 ```
 
-## 📥 Inbox por procesar
+## 📥 Bandeja por procesar
 ```dataview
 LIST
 FROM "00_Inbox"
@@ -75,6 +75,6 @@ TABLE WITHOUT ID
   length(rows) AS Cantidad
 FROM ""
 WHERE !contains(file.path, ".obsidian")
-GROUP BY type
+GROUP BY type AS Tipo
 SORT length(rows) DESC
 ```

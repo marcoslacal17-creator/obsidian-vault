@@ -1,7 +1,7 @@
 ﻿<%*
-const title = await tp.system.prompt("Título de la reunión");
-const date = tp.date.now("YYYY-MM-DD");
-await tp.file.rename(`${date} - ${title}`);
+const titulo = await tp.system.prompt("Título de la reunión");
+const fecha = tp.date.now("YYYY-MM-DD");
+await tp.file.rename(`${fecha} - ${titulo}`);
 -%>
 ---
 type: meeting
@@ -20,13 +20,13 @@ tags: [meeting]
 ## 🎯 Objetivo
 - 
 
-## 📋 Agenda
+## 📋 Orden del día
 1. 
 
 ## 📝 Notas
 - 
 
-## ✅ Action items
+## ✅ Acciones a realizar
 - [ ] 
 
 ## 🔗 Referencias

@@ -12,10 +12,10 @@ tags: [literature]
 
 # <% tp.file.title %>
 
-## 📖 Metadata
+## 📖 Datos
 - **Autor:** 
 - **Año:** 
-- **Tipo:** libro / artículo / video / podcast
+- **Tipo:** libro / artículo / vídeo / podcast
 - **URL:** 
 
 ## 🎯 Por qué lo leo
@@ -27,7 +27,7 @@ tags: [literature]
 ## 💡 Ideas clave
 - 
 
-## ✍️ Highlights / citas
+## ✍️ Subrayados / citas
 > 
 
 ## 🔗 Conecta con

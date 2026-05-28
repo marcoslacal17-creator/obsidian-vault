@@ -11,7 +11,7 @@ tags: [person]
 
 # <% tp.file.title %>
 
-## 📇 Info
+## 📇 Datos
 - **Empresa:** 
 - **Rol:** 
 - **Cómo nos conocimos:** 
@@ -35,5 +35,5 @@ not done
 description includes <% tp.file.title %>
 ```
 
-## 🔗 Links
+## 🔗 Enlaces
 - 

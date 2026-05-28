@@ -6,7 +6,7 @@ tags: [permanent]
 
 # <% tp.file.title %>
 
-> Idea atómica en una frase.
+> Idea atómica expresada en una sola frase.
 
 ## Desarrollo
 Explicación con tus propias palabras. Una sola idea por nota.
