@@ -1,0 +1,28 @@
+﻿{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": true,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {"query": "path:02_Projects", "color": {"a": 1, "rgb": 14701138}},
+    {"query": "path:06_Notes", "color": {"a": 1, "rgb": 5431518}},
+    {"query": "path:07_People", "color": {"a": 1, "rgb": 14048348}},
+    {"query": "path:01_Daily", "color": {"a": 1, "rgb": 8421504}},
+    {"query": "path:03_Areas", "color": {"a": 1, "rgb": 16753920}}
+  ],
+  "collapse-display": false,
+  "showArrow": false,
+  "textFadeMultiplier": 0,
+  "nodeSizeMultiplier": 1.2,
+  "lineSizeMultiplier": 1,
+  "collapse-forces": false,
+  "centerStrength": 0.5,
+  "repelStrength": 12,
+  "linkStrength": 1,
+  "linkDistance": 250,
+  "scale": 1,
+  "close": true
+}

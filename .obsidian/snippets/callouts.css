@@ -1,0 +1,22 @@
+﻿/* Callouts mejorados - estilo Notion-like */
+.callout {
+  border-radius: 10px;
+  border-left-width: 4px;
+  padding: 14px 18px;
+  margin: 16px 0;
+  background-color: var(--background-secondary);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.callout-title {
+  font-weight: 700;
+  font-size: 0.95em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.callout[data-callout="tip"] { --callout-color: 130, 220, 130; }
+.callout[data-callout="warning"] { --callout-color: 230, 170, 60; }
+.callout[data-callout="danger"] { --callout-color: 230, 80, 80; }
+.callout[data-callout="success"] { --callout-color: 80, 200, 130; }
+.callout[data-callout="quote"] { --callout-color: 150, 150, 150; }
+.callout[data-callout="idea"] { --callout-color: 180, 100, 240; }

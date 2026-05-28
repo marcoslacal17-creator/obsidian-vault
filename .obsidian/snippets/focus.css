@@ -1,0 +1,17 @@
+﻿/* Modo foco: línea más ancha, padding generoso */
+.markdown-source-view.is-readable-line-width .cm-sizer,
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+  max-width: 780px;
+  padding: 2.5em 3em;
+}
+/* Resaltar línea activa */
+.cm-active.cm-line {
+  background-color: var(--background-secondary) !important;
+  border-radius: 4px;
+}
+/* Suavizar bordes de imágenes */
+.markdown-preview-view img,
+.markdown-source-view img {
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}

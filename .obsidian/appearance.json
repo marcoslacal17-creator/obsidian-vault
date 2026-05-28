@@ -1,0 +1,12 @@
+﻿{
+  "accentColor": "#7c3aed",
+  "theme": "obsidian",
+  "cssTheme": "",
+  "interfaceFontFamily": "Inter",
+  "textFontFamily": "Inter",
+  "monospaceFontFamily": "JetBrains Mono",
+  "baseFontSize": 16,
+  "showRibbon": true,
+  "showInlineTitle": true,
+  "enabledCssSnippets": ["callouts", "typography", "focus"]
+}
