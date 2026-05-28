@@ -1,0 +1,12 @@
+﻿{
+  "regex": {},
+  "lineRegex": {},
+  "linkRegex": {},
+  "linkLineRegex": {},
+  "imageRegex": {},
+  "websiteBlacklist": "",
+  "maximumTitleLength": 100,
+  "useNewLinkFormat": false,
+  "enhanceDefaultPaste": true,
+  "enhanceDropEvents": true
+}

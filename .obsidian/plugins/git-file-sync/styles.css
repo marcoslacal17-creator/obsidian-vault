@@ -1,0 +1,613 @@
+/* ── VaultBridge – Sync Status View ────────────────────────────── */
+
+/* Full-height flex column so the list can scroll independently */
+.sync-status-view {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    container-type: inline-size;
+}
+
+
+/* ── Info strip ─────────────────────────────────────────────────── */
+.ssv-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--background-secondary);
+    border-bottom: 1px solid var(--background-modifier-border);
+    font-size: 0.75em;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+@container (max-width: 400px) {
+    .ssv-info { gap: 4px; padding: 4px 8px; }
+    .ssv-info-sep { display: none; }
+}
+
+.ssv-info-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-weight: 500;
+    color: var(--text-normal);
+}
+
+.ssv-info-sep { color: var(--background-modifier-border); }
+
+.ssv-info-time {
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+/* ── Filter tabs ────────────────────────────────────────────────── */
+.ssv-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    flex-shrink: 0;
+}
+
+.ssv-tabs::-webkit-scrollbar { display: none; }
+
+.ssv-tab {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    font-size: 0.80em;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    background: transparent;
+    color: var(--text-muted);
+    transition: background 0.12s, color 0.12s;
+    min-height: 28px;
+}
+
+@container (max-width: 400px) {
+    .ssv-tab-label { display: none; }
+    .ssv-tab { padding: 4px 8px; min-width: 32px; justify-content: center; }
+}
+
+.ssv-tab:hover {
+    background: var(--background-modifier-hover);
+    color: var(--text-normal);
+}
+
+.ssv-tab.active {
+    background: var(--interactive-accent);
+    color: var(--text-on-accent);
+    border-color: var(--interactive-accent);
+}
+
+.ssv-tab-count {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 10px;
+    padding: 1px 6px;
+    font-size: 0.85em;
+    min-width: 18px;
+    text-align: center;
+}
+.is-mobile .ssv-tabs {
+    padding: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+    overflow-x: visible;
+}
+
+.is-mobile .ssv-tab {
+    padding: 6px 14px;
+    font-size: 0.9em;
+    min-height: 36px;
+    border-radius: 10px;
+    flex: 1 0 auto;
+    justify-content: center;
+}
+
+.ssv-tab.active .ssv-tab-count {
+    background: rgba(255, 255, 255, 0.22);
+}
+
+/* ── Action bar ─────────────────────────────────────────────────── */
+.ssv-action-bar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--background-modifier-border);
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    background: var(--background-primary);
+}
+
+@container (max-width: 450px) {
+    .ssv-btn-label { display: none; }
+    .ssv-btn { padding: 5px 8px; min-width: 34px; justify-content: center; }
+    .ssv-select-label { display: none; }
+    .ssv-bar-spacer { display: none; }
+}
+
+/* ── Mobile specific overrides ─────────────────────────────────── */
+
+.is-mobile .ssv-btn {
+    padding: 8px 14px;
+    font-size: 0.9em;
+    min-height: 38px;
+    flex: 1 0 auto;
+    justify-content: center;
+}
+
+.is-mobile .ssv-action-bar {
+    gap: 8px;
+    padding: 10px;
+}
+
+.is-mobile .ssv-bar-spacer {
+    display: none;
+}
+
+
+.ssv-bar-spacer { flex: 1; }
+
+.ssv-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 11px;
+    border-radius: 5px;
+    font-size: 0.82em;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    border: 1px solid transparent;
+    min-height: 30px;
+    transition: opacity 0.12s, background 0.12s;
+}
+
+.ssv-btn:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+}
+
+.ssv-btn:not(:disabled):hover { opacity: 0.82; }
+
+.ssv-btn-refresh {
+    background: var(--background-secondary);
+    border-color: var(--background-modifier-border);
+    color: var(--text-normal);
+}
+
+.ssv-btn-push {
+    background: var(--color-green);
+    color: white;
+}
+
+.ssv-btn-pull {
+    background: var(--color-blue);
+    color: white;
+}
+
+.ssv-btn-delete {
+    background: var(--color-red);
+    color: white;
+}
+
+/* Indeterminate "select all" checkbox row */
+.ssv-select-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.80em;
+    color: var(--text-muted);
+    cursor: pointer;
+    min-height: 30px;
+    padding: 0 4px;
+}
+
+.ssv-select-row input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+/* ── Scrollable file list ───────────────────────────────────────── */
+.ssv-list {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ── Empty / loading states ─────────────────────────────────────── */
+.ssv-empty {
+    padding: 36px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.88em;
+}
+
+/* ── Progress bar ───────────────────────────────────────────────── */
+.ssv-progress {
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.ssv-progress-text {
+    font-size: 0.83em;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.ssv-progress-bar {
+    width: 100%;
+    height: 4px;
+    background: var(--background-secondary);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.ssv-progress-fill {
+    height: 100%;
+    background: var(--interactive-accent);
+    transition: width 0.2s ease;
+    border-radius: 2px;
+}
+
+/* ── File item ──────────────────────────────────────────────────── */
+.ssv-file {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--background-modifier-border-hover);
+    border-left: 3px solid transparent;
+    transition: background 0.1s;
+}
+
+.ssv-file:hover { background: var(--background-modifier-hover); }
+
+.ssv-file.status-synced    { border-left-color: var(--color-green); }
+.ssv-file.status-modified  { border-left-color: var(--text-warning); }
+.ssv-file.status-unsynced  { border-left-color: var(--color-red); }
+.ssv-file.status-remote    { border-left-color: var(--color-blue); }
+.ssv-file.status-checking  { border-left-color: var(--background-modifier-border); }
+
+.ssv-file-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-height: 30px;
+}
+
+.ssv-file-checkbox {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.ssv-file-icon {
+    width: 18px;
+    text-align: center;
+    flex-shrink: 0;
+    font-size: 0.95em;
+    font-weight: 600;
+}
+
+.ssv-icon-synced   { color: var(--color-green); }
+.ssv-icon-modified { color: var(--text-warning); }
+.ssv-icon-unsynced { color: var(--color-red); }
+.ssv-icon-remote   { color: var(--color-blue); }
+.ssv-icon-checking { color: var(--text-muted); }
+
+.ssv-file-path {
+    flex: 1;
+    font-family: var(--font-monospace);
+    font-size: 0.80em;
+    color: var(--text-normal);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+.ssv-status-badge {
+    font-size: 0.70em;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border: 1px solid currentColor;
+    opacity: 0.85;
+}
+
+.ssv-badge-synced   { color: var(--color-green); }
+.ssv-badge-modified { color: var(--text-warning); }
+.ssv-badge-unsynced { color: var(--color-red); }
+.ssv-badge-remote   { color: var(--color-blue); }
+.ssv-badge-checking { color: var(--text-muted); }
+
+/* ── Per-file action row ────────────────────────────────────────── */
+.ssv-file-actions {
+    display: flex;
+    gap: 5px;
+    margin-top: 7px;
+    padding-left: 41px; /* aligns under path */
+    flex-wrap: wrap;
+}
+
+.ssv-action-btn {
+    padding: 4px 10px;
+    font-size: 0.76em;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid var(--background-modifier-border);
+    background: transparent;
+    color: var(--text-normal);
+    white-space: nowrap;
+    min-height: 26px;
+    transition: background 0.1s, opacity 0.1s;
+}
+
+.is-mobile .ssv-action-btn {
+    padding: 8px 15px;
+    font-size: 0.85em;
+    min-height: 40px;
+}
+
+
+
+.ssv-action-btn:hover {
+    background: var(--background-modifier-hover);
+}
+
+.ssv-action-btn.push {
+    border-color: var(--color-green);
+    color: var(--color-green);
+}
+
+.ssv-action-btn.pull {
+    border-color: var(--color-blue);
+    color: var(--color-blue);
+}
+
+.ssv-action-btn.danger {
+    border-color: var(--color-red);
+    color: var(--color-red);
+}
+
+.ssv-action-btn.diff {
+    border-color: var(--background-modifier-border);
+    color: var(--text-muted);
+}
+
+/* ── Diff panel ─────────────────────────────────────────────────── */
+.ssv-diff {
+    display: none;
+    margin-top: 6px;
+    padding-left: 41px;
+    container-type: inline-size;
+}
+
+.ssv-diff.visible { display: block; }
+
+/* ── Side-by-side diff (default for wide panels) ──────────────────── */
+.ssv-diff-split {
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 5px;
+    overflow: hidden;
+    background: var(--background-primary);
+}
+
+.ssv-diff-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: var(--font-monospace);
+    font-size: 0.74em;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.ssv-diff-hd {
+    position: sticky;
+    top: 0;
+    padding: 4px 8px;
+    background: var(--background-secondary);
+    color: var(--text-muted);
+    font-size: 0.9em;
+    font-weight: 600;
+    border-bottom: 1px solid var(--background-modifier-border);
+    z-index: 1;
+}
+
+.ssv-diff-hd:first-child {
+    border-right: 1px solid var(--background-modifier-border);
+}
+
+.ssv-diff-cell {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 1px 6px;
+    min-height: 18px;
+    overflow: hidden;
+}
+
+/* Right column of each row gets a left separator */
+.ssv-diff-cell:nth-child(even) {
+    border-left: 1px solid var(--background-modifier-border);
+}
+
+/* Row separator (every pair of cells) */
+.ssv-diff-cell:nth-child(4n+3),
+.ssv-diff-cell:nth-child(4n+4) {
+    background-color: transparent;
+}
+
+.ssv-diff-cell.removed   { background: rgba(var(--color-red-rgb), 0.12); }
+.ssv-diff-cell.added     { background: rgba(var(--color-green-rgb), 0.12); }
+.ssv-diff-cell.unchanged { background: transparent; }
+.ssv-diff-cell.empty     { background: var(--background-secondary); opacity: 0.6; }
+
+.ssv-diff-ln {
+    color: var(--text-muted);
+    min-width: 22px;
+    text-align: right;
+    flex-shrink: 0;
+    user-select: none;
+    opacity: 0.6;
+    font-size: 0.88em;
+}
+
+.ssv-diff-code {
+    flex: 1;
+    white-space: pre-wrap;
+    word-break: break-all;
+    color: var(--text-normal);
+}
+
+/* ── Unified diff (narrow containers / mobile) ─────────────────────── */
+.ssv-diff-unified {
+    display: none;
+    background: var(--background-secondary);
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-family: var(--font-monospace);
+    font-size: 0.74em;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 240px;
+    overflow-y: auto;
+    margin: 0;
+}
+
+.ssv-u-line {
+    display: block;
+    padding: 1px 4px;
+    border-radius: 2px;
+}
+
+.ssv-u-line.removed   { background: rgba(var(--color-red-rgb), 0.18); }
+.ssv-u-line.added     { background: rgba(var(--color-green-rgb), 0.18); }
+.ssv-u-line.unchanged { color: var(--text-muted); }
+
+/* Container query: switch layout based on the diff panel's own width */
+@container (max-width: 440px) {
+    .ssv-diff-split  { display: none; }
+    .ssv-diff-unified { display: block; }
+}
+
+@container (min-width: 441px) {
+    .ssv-diff-split  { display: block; }
+    .ssv-diff-unified { display: none; }
+}
+
+/* ── Mobile adjustments ─────────────────────────────────────────── */
+@container (max-width: 480px) {
+    .ssv-info { padding: 5px 10px; gap: 8px; }
+
+    .ssv-tabs { padding: 6px 8px; gap: 3px; }
+    .ssv-tab  { padding: 4px 8px; font-size: 0.76em; }
+    .ssv-tab-label { display: none; }
+
+    .ssv-action-bar { padding: 6px 8px; gap: 5px; }
+    .ssv-btn { padding: 5px 9px; font-size: 0.76em; }
+    .ssv-btn-label { display: none; }
+
+    .ssv-file { padding: 8px 10px; }
+    .ssv-file-path { font-size: 0.76em; }
+    .ssv-status-badge { display: none; } 
+
+    .ssv-file-actions { padding-left: 0; margin-top: 8px; }
+    .ssv-action-btn { flex: 1 1 auto; text-align: center; min-height: 32px; }
+    .ssv-action-btn .ssv-btn-label { display: none; }
+
+    .ssv-diff { padding-left: 0; }
+}
+
+/* Mobile label overrides — placed after container queries so source order wins */
+.is-mobile .ssv-btn-label,
+.is-mobile .ssv-tab-label {
+    display: inline;
+}
+
+.is-mobile .ssv-action-btn .ssv-btn-label {
+    display: inline;
+}
+
+/* ── Conflict Modal ─────────────────────────────────────────────── */
+.sync-conflict-modal { max-width: 900px; }
+
+.conflict-description {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.conflict-diff-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+@media (max-width: 600px) {
+    .conflict-diff-container { grid-template-columns: 1fr; }
+}
+
+.conflict-section h3,
+.conflict-diff-section h3 {
+    margin: 0 0 8px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.conflict-content,
+.conflict-diff {
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 10px;
+    background: var(--background-secondary);
+    border-radius: 5px;
+    margin: 0;
+    font-family: var(--font-monospace);
+    font-size: 0.82em;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.conflict-diff-section { margin-bottom: 18px; }
+
+.conflict-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 12px;
+    border-top: 1px solid var(--background-modifier-border);
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .conflict-buttons { justify-content: stretch; }
+    .conflict-buttons .setting-item-control { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .sync-conflict-modal .conflict-buttons button { width: 100%; margin: 0; }
+}
+
+.conflict-buttons .setting-item {
+    border: none;
+    padding: 0;
+}
+
+.conflict-buttons .setting-item-control {
+    display: flex;
+    gap: 10px;
+}

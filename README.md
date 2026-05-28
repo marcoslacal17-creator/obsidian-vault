@@ -1,4 +1,4 @@
-﻿# 🧠 Vault de Marco
+# 🧠 Vault de Marcos
 
 Sistema personal de conocimiento, proyectos y vida. Construido sobre Obsidian.
 

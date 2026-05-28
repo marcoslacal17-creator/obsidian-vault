@@ -1,10 +1,12 @@
-﻿# Obsidian workspace & cache (no versionar)
+﻿# Workspace state (no versionar)
 .obsidian/workspace
 .obsidian/workspace.json
 .obsidian/workspaces.json
 .obsidian/workspace-mobile.json
 .obsidian/cache
-.obsidian/plugins/*/data.json
+
+# Plugin de Git: contiene token de autenticación
+.obsidian/plugins/obsidian-git/data.json
 
 # Trash local
 .trash/
@@ -18,8 +20,3 @@ desktop.ini
 .vscode/
 *.swp
 *~
-
-# Attachments grandes (descomentar si no quieres versionar binarios pesados)
-# 10_Attachments/*.mp4
-# 10_Attachments/*.mov
-# 10_Attachments/*.zip

@@ -1,0 +1,15 @@
+﻿{
+  "globalQuery": "",
+  "globalFilter": "",
+  "removeGlobalFilter": false,
+  "setDoneDate": true,
+  "setCreatedDate": true,
+  "setCancelledDate": true,
+  "autoSuggestInEditor": true,
+  "autoSuggestMinMatch": 0,
+  "autoSuggestMaxItems": 6,
+  "useFilenameAsScheduledDate": false,
+  "filenameAsDateFolders": [],
+  "recurrenceOnNextLine": false,
+  "loggingOptions": {"minLevels": {"": "info"}}
+}

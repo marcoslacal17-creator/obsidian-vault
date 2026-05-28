@@ -1,4 +1,4 @@
-﻿---
+---
 type: guide
 tags: [meta, onboarding]
 ---

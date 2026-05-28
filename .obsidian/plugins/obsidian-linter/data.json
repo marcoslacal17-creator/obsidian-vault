@@ -1,0 +1,14 @@
+﻿{
+  "ruleConfigs": {
+    "trailing-spaces": {"enabled": true, "twoSpaceLineBreak": false},
+    "consecutive-blank-lines": {"enabled": true},
+    "empty-line-around-tables": {"enabled": true},
+    "empty-line-around-blockquotes": {"enabled": true},
+    "compact-yaml": {"enabled": false},
+    "yaml-title": {"enabled": false}
+  },
+  "lintOnSave": false,
+  "displayChanged": true,
+  "foldersToIgnore": ["09_Templates"],
+  "linterLocale": "system-default"
+}

@@ -1,0 +1,25 @@
+﻿{
+  "command_timeout": 5,
+  "templates_folder": "09_Templates",
+  "templates_pairs": [["", ""]],
+  "trigger_on_file_creation": true,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {"folder": "02_Projects", "template": "09_Templates/Project.md"},
+    {"folder": "07_People", "template": "09_Templates/Person.md"},
+    {"folder": "08_Meetings", "template": "09_Templates/Meeting.md"},
+    {"folder": "06_Notes/Literature", "template": "09_Templates/Literature.md"},
+    {"folder": "06_Notes/Permanent", "template": "09_Templates/Permanent.md"},
+    {"folder": "03_Areas", "template": "09_Templates/Area.md"}
+  ],
+  "enable_file_templates": false,
+  "file_templates": [{"regex": ".*", "template": ""}],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [""],
+  "startup_templates": [""]
+}
